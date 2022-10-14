@@ -22,13 +22,7 @@ function Navbar() {
                    <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
                </div>
                <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                   <li className='nav-item'>
-                       <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                           HOME
-                       </Link>
-                   </li>
-
-                   <li className='nav-item'>
+                    <li className='nav-item'>
                        <Link to='/store' className='nav-links' onClick={closeMobileMenu}>
                            STORE
                        </Link>
@@ -45,6 +39,13 @@ function Navbar() {
                            NEWS
                        </Link>
                    </li>
+                </ul>
+                <ul className='nav-customer'>
+                    <li className='nav-item'>
+                        <Link to='/' className='nav-links'>
+                            <img src="https://file.hstatic.net/1000351433/file/user_bfb942d5edb24fc895104e6524135e07.png" width='40' height='40'></img>
+                        </Link>
+                    </li>
                 </ul>
            </div>
        </nav>
