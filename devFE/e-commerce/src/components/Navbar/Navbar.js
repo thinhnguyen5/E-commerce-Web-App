@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import { FaUserCircle } from "react-icons/fa";
 import './Navbar.css';
 
 function Navbar() {
@@ -39,13 +40,6 @@ function Navbar() {
                            NEWS
                        </Link>
                    </li>
-                </ul>
-                <ul className='nav-customer'>
-                    <li className='nav-item'>
-                        <Link to='/' className='nav-links'>
-                            <img src="https://file.hstatic.net/1000351433/file/user_bfb942d5edb24fc895104e6524135e07.png" width='40' height='40'></img>
-                        </Link>
-                    </li>
                 </ul>
            </div>
        </nav>
