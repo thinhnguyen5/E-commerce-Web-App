@@ -8,6 +8,7 @@
   position: sticky;
   top: 0;
   z-index: 999;
+  border-bottom: 1px solid #84817a;
 }
   
 .navbar-container {
@@ -101,7 +102,7 @@
   }
 
   .nav-menu.active {
-    background: #fff;
+    background: #000;
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;
@@ -113,6 +114,7 @@
     padding: 2rem;
     width: 100%;
     display: table;
+    color: #fff;
   }
   
   .nav-links:hover {
