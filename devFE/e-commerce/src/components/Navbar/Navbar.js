@@ -45,15 +45,29 @@ function Navbar() {
         </nav> */}
             <header className="relative flex items-center justify-between p-8 border-b border-slate-400 max-w-7xl mx-auto">
                 <div className="flex items-center justify-start gap-4">
-                    <Link>
+                    <Link to='/'>
                         <img className='navbar-icon' src="https://theme.hstatic.net/200000377411/1000914764/14/icon-bad2.png?v=108" alt="" />
                     </Link>
 
                     <nav>
                         <ul className="flex items-center justify-start gap-4">
-                            <li>STORE</li>
-                            <li>STORY</li>
-                            <li>NEWS</li>
+                        <li>
+                        <Link to='/store'>
+                            STORE
+                        </Link>
+                    </li>
+
+                    <li>
+                        <Link to='/story'>
+                            STORY
+                        </Link>
+                    </li>
+
+                    <li>
+                        <Link to='/news'>
+                            NEWS
+                        </Link>
+                    </li>
                         </ul>
                     </nav>
                 </div>
