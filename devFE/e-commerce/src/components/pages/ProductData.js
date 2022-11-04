@@ -2,9 +2,11 @@ export const data = [
     {
         id: 1,
         image: './images/image-product-1.jpg',
+        thumbnail: "./images/image-product-1-thumbnail.jpg",
         title: 'UNDERRATED WASHED TEE',
         form: 'Oversized Tee',
-        price: '26'
+        price: '26', 
+        material: 'Cotton Washed'
     },
     {
         id: 2,
