@@ -1,55 +1,69 @@
 import React from 'react';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import {data} from "./ProductData";
-
-// export default function SingleProduct() {
-//     const { id } = useParams();
-//     // const productDetail = data.find((productDetail) => productDetail.id === id);
-//     // const {image, title, form, price} = productDetail
-//     return (
-//     <>
-//         {/* <section className="max-w-5xl mx-auto">
-
-//             <div>
-//                 <article>
-//                     <img src={image} alt={title} />
-//                 </article>
-//                 <article>
-//                     <h1>{title}</h1>
-//                     {form && <p>{form}</p>}
-//                     <p>{price}$</p>
-//                 </article>
-//             </div>
-
-//         </section> */}
-//         <h4>{id}</h4>
-//     </>
-//     )
-// }
-
+import {data} from "./ProductData"
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const SingleProduct = () => {
     const { title } = useParams();
     const productDetail = data.find((productDetail) => productDetail.title === title);
-    const {image, form, price} = productDetail
+    const {form, price, image, thumbnail, material} = productDetail
+    const [amount, setAmount] = useState(0);
+
+    const handleMinus = () => {
+        setAmount(amount - 1)
+        if (amount < 0) setAmount(0)
+    };
 
     return (
         <>
-         <section className="max-w-5xl mx-auto">
+            <section className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:py-20 lg:place-items-center">
+                <article>
+                    <img src={image} alt={title} className="w-full lg:rounded-2xl" />
 
-             <div>
-                 <article>
-                     <img src={image} alt={title} />
-                 </article>
-                 <article>
-                     <h1>{title}</h1>
-                     {form && <p>{form}</p>}
-                     <p>{price}$</p>
-                 </article>
-             </div>
+                    <ul className="flex items-center justify-start gap-5 flex-wrap mt-5">
+                        <li className="border-2 border-black-400 opacity-80 border-2 rounded-2xl overflow-hidden cursor-pointer">
+                            <img src={thumbnail} alt="" className="w-20" />
+                        </li>
+                    </ul>
+                </article>
 
-         </section>
+                <article className="px-8 pb-10">
+                    <h2 className="bg-slate-100 py-1 px-2 text-black-400 uppercase tracking-wide text-sm font-bold inline-block rounded shadow mb-10">Buwj Habit</h2>
+                    <h1 className="text-slate-900 mb-10 font-bold text-3xl lg:text-4xl">{title}</h1>
+                    <p className="text-slate-600 mb-10 leading-relaxed">{form}</p>
+                    <p className="text-slate-600 mb-10 leading-relaxed">{material}</p>
+
+                    <div className="flex flex-wrap items-center justify-between lg:flex-col lg:items-start lg:start-4">
+                        <ul className="flex items-center gap-5">
+                            <li className="text-slate-900 font-bold text-2xl">${price}</li>
+                            <li className="bg-orange-100 py-1 px-2 text-black-400 tracking-wide text-sm font-bold inline-block rounded shadow">50%</li>
+                        </ul>
+
+                        <p className="text-slate-600 text-sm">
+                            <s>${price*2}</s>
+                        </p>
+                    </div>
+
+                    <div className="mt-10 lg:flex items-center justify-between gap-2">
+                        <ul className="flex items-center justify-between bg-slate-100 py-2 px-4 rounded shadow lg:flex-1">
+                            <li onClick={handleMinus} className="cursor-pointer">
+                                <img className="w-5" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsfQp2cyWVsyFYLiJ4S6WqyqMvGj9eXdbnr9KbQg2E3w&s' alt="" />
+                            </li>
+                            <li>{amount}</li>
+                            <li onClick={() => setAmount(amount + 1)} className="cursor-pointer">
+                                <img className="w-5" src='https://media.istockphoto.com/vectors/black-plus-sign-positive-symbol-vector-id688550958?k=20&m=688550958&s=612x612&w=0&h=wvzUqT3u3feYygOXg3GB9pYBbqIsyu_xpvfTX-6HOd0=' alt="" />
+                            </li>
+                        </ul>
+                        
+                        <div className="lg:flex-1">
+                            <button className="flex items-center justify-center gap-4 bg-white py-2 px-4 font-bold rounded-lg shadow mt-5 w-full lg:mt-0 hover:bg-slate-600 transition-all duration-200">
+                                <AiOutlineShoppingCart /> Add to cart
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </section>
 
         </>
     );
