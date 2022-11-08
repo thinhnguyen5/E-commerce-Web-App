@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { BsFillCartPlusFill } from "react-icons/bs";
 import './Navbar.css';
 import Cart from '../Cart';
 
-function Navbar() {
+const Navbar = ({size}) => {
     const [click, setClick] = useState(false);
 
     const [isOpen, setIsOpen] = useState(false);
@@ -17,8 +17,8 @@ function Navbar() {
         <>
             <header className="relative flex items-center justify-between p-8 border-b border-slate-400 max-w-7xl mx-auto">
                 <div className="flex items-center justify-start gap-4">
-                    <Link className="hidden" to='/'>
-                        <img className='navbar-icon' src="https://theme.hstatic.net/200000377411/1000914764/14/icon-bad2.png?v=108" alt="" />
+                    <Link className="hidden cursor-pointer" to='/'>
+                        <img to='/' className='navbar-icon' src="https://theme.hstatic.net/200000377411/1000914764/14/icon-bad2.png?v=108" alt="" />
                     </Link>
                     
                     <ul className="flex items-center justify-start gap-4">
@@ -37,6 +37,12 @@ function Navbar() {
 
                     <nav className={isOpen && "open"}>
                         <ul>
+                            <li>
+                                <Link to='/'>
+                                    HOME
+                                </Link>
+                            </li>
+
                             <li>
                                 <Link to='/store'>
                                     STORE
@@ -58,13 +64,14 @@ function Navbar() {
                     </nav>
                 </div>
 
-                <div>
+                <div className='cart'>
                     <ul className="flex items-center justify-start gap-4">
                         <li>
-                            <button>
-                                < AiOutlineShoppingCart className="text-2xl text-slate-600" />
-                            </button>
+                            <Link to='/cart'>
+                                < BsFillCartPlusFill className="text-2xl text-slate-600" />
+                            </Link>
                         </li>
+                        <span>{size}</span>
                     </ul>
                 </div>
             </header>

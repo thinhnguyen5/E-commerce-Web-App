@@ -5,3 +5,23 @@
   padding: 0;
   color: #000000;
 }
+
+.warning{
+  height: 40px;
+  width: 300px;
+  position: absolute;
+  right: 0;
+  top: 15%;
+  background-color: rgb(210, 91, 91);
+  font-size: 1.1rem;
+  color: white;
+  font-family: cursive;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+@media (min-width: 960px) {
+  .warning{
+    top: 5%;
+  }
+}

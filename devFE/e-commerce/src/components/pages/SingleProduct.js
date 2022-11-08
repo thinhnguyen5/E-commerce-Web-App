@@ -1,14 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import {data} from "./ProductData"
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import data from "./ProductData"
+import { BsFillCartPlusFill } from "react-icons/bs";
 
-const SingleProduct = () => {
+const SingleProduct = ({ addToCart}) => {
     const { title } = useParams();
     const productDetail = data.find((productDetail) => productDetail.title === title);
     const {form, price, image, thumbnail, material} = productDetail
     const [amount, setAmount] = useState(0);
+    const [cart, setCart] = useState([]);
 
     const handleMinus = () => {
         setAmount(amount - 1)
@@ -56,9 +57,11 @@ const SingleProduct = () => {
                             </li>
                         </ul>
                         
-                        <div className="lg:flex-1">
-                            <button className="flex items-center justify-center gap-4 bg-white py-2 px-4 font-bold rounded-lg shadow mt-5 w-full lg:mt-0 hover:bg-slate-600 transition-all duration-200">
-                                <AiOutlineShoppingCart /> Add to cart
+                        <div className="lg:flex-1 cursor-pointer">
+                            <button 
+                                onClick={() => addToCart(productDetail)}
+                                className="flex items-center justify-center gap-4 bg-white py-2 px-4 font-bold rounded-lg shadow mt-5 w-full lg:mt-0 hover:bg-slate-600 transition-all duration-200">
+                                <BsFillCartPlusFill /> Add to cart
                             </button>
                         </div>
                     </div>
