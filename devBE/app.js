@@ -6,7 +6,7 @@ const multer = require('multer');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-//Middlewares
+//Middleware
 app.use(cors());
 app.use(bodyParser.json());
 //Import ROUTES
