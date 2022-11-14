@@ -5,13 +5,9 @@ const ProductSchema = mongoose.Schema({
         type: 'String',
         required: true
     },
-    thumbnail: {
-        data: Buffer,
-        contentType: String
-    },
     image: {
-        data: Buffer,
-        contentType: String
+        type: 'String',
+        required: true
     },
     price: {
         type: 'String',

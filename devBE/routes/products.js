@@ -36,28 +36,21 @@ router.get('/:productId', async (req, res) => {
 
 //Create a new product
 router.post('/', async (req, res) => {
-    upload(req, res, async (err) => {
-        if(err) {
-            console.error(err);
-        } else {
             const product = new Product({
                 title: req.body.title,
-                image: {
-                    data: req.file.filename,
-                    contentType: 'image/jpg'},
+                image: req.body.image,
                 price: req.body.price,
                 form: req.body.form,
                 size: req.body.size,
                 material: req.body.material
             });
+            
             try {
                 const saveProduct = await product.save();
                 res.status(200).json(saveProduct);
             } catch(err) {
                 res.status(400).json({message: err});
             }
-        }
-    })  
 });
 
 //DELETE PRODUCT

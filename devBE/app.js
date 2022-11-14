@@ -9,23 +9,11 @@ const cors = require('cors');
 //Middleware
 app.use(cors());
 app.use(bodyParser.json());
+
 //Import ROUTES
 const productsRoute = require('./routes/products');
 
 app.use('/products', productsRoute);
-
-//Storage
-const Storage = multer.diskStorage({
-
-    destination: 'uploads',
-    filename: (req, file, cb) => {
-        cb(null, file.originalname);
-    },
-});
-
-const upload = multer ({
-    storage: Storage
-});
 
 //Connect to DB
 mongoose.connect(
