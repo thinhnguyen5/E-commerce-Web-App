@@ -5,6 +5,7 @@ require('dotenv/config');
 const multer = require('multer');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const port = process.env.PORT || 4000;
 
 //Middleware
 app.use(cors());
@@ -23,4 +24,5 @@ mongoose.connect(
 );
 
 //Listening the server
-app.listen(4000);
+// Listen on port 4000
+app.listen(port, () => console.log(`Listening on port ${port}`))
