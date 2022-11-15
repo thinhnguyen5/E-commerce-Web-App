@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
                 size: req.body.size,
                 material: req.body.material
             });
-            
+
             try {
                 const saveProduct = await product.save();
                 res.status(200).json(saveProduct);
