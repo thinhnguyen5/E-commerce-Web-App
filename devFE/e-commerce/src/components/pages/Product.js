@@ -1,10 +1,23 @@
-import {useState} from "react";
-import data from "./ProductData";
+import {useState, useEffect} from "react";
 import { Link } from 'react-router-dom';
 import { BsFillCartPlusFill } from "react-icons/bs";
-
+import Axios from "axios";
 const Product = ({ addToCart }) => {
-    const [products, setProducts] = useState(data)
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        const fetchProductData = async () => {
+            try {
+                const res = await fetch("https://e-commerce-web-app-be.herokuapp.com/products")
+                const data = await res.json()
+                setProducts(data)
+                console.log(data)
+            } catch (error) {
+                console.error(error)
+            }
+        }
+        fetchProductData()
+    }, [])
     
     const [value, setValue] = useState(0)
 
@@ -35,7 +48,7 @@ const Product = ({ addToCart }) => {
                                 products.map((product) => {
                                     return (
                                         <div>
-                                            <Link to={`/${product.title}`} key={product.id}>
+                                            <Link to={`/${product._id}`} key={product._id}>
                                                 <article  className="border-2 border-black p-4 rounded-2xl">
                                                     <img 
                                                         src={product.image}

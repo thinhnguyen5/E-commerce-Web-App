@@ -64,6 +64,12 @@ const Cart = ({cart, setCart}) => {
                     $
                 </span>
             </div>
+            <div className="lg:flex-1 cursor-pointer">
+                <button 
+                    className="flex items-center justify-center bg-black text-white py-2 px-4 font-bold rounded-lg shadow mt-5 lg:mt-0 hover:bg-slate-600 transition-all duration-200">
+                    Checkout
+                </button>
+            </div>
         </article>
     )
 }

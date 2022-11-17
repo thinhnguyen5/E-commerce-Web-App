@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { BsFillCartPlusFill } from "react-icons/bs";
 import './Navbar.css';
-import Cart from '../Cart';
 
 const Navbar = ({size}) => {
     const [click, setClick] = useState(false);
@@ -50,13 +49,13 @@ const Navbar = ({size}) => {
                             </li>
 
                             <li>
-                                <Link to='/story'>
+                                <Link>
                                     STORY
                                 </Link>
                             </li>
 
                             <li>
-                                <Link to='/news'>
+                                <Link>
                                     NEWS
                                 </Link>
                             </li>
