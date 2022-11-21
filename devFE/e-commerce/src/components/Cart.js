@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import data from "../components/pages/ProductData"
 import { AiOutlineShopping } from "react-icons/ai";
@@ -7,6 +7,8 @@ import './Cart.css'
 const Cart = ({cart, setCart}) => {
     
     const [CART, setCART] = useState([])
+    const [showCart, setShowCart] = useState(false);
+    const cartRef = useRef();
 
      useEffect(() => {
         setCART(cart)
@@ -27,7 +29,7 @@ const Cart = ({cart, setCart}) => {
                                 <img src= {cartItem.image} width={40} />
                                 <span className="cart_title"> {cartItem.title} </span>
                             </div>
-                            <div>
+                            <div className="cart-product-quantity">
                                 <button
                                     onClick={() => {
                                         const _CART = CART.map((item, index) => {
@@ -36,7 +38,7 @@ const Cart = ({cart, setCart}) => {
                                         setCART(_CART)
                                     }}
                                 >-</button>
-                                <span> {cartItem.quantity} </span>
+                                <span className="count"> {cartItem.quantity} </span>
                                 <button
                                     onClick={() => {
                                         const _CART = CART.map((item, index) => {
@@ -48,27 +50,48 @@ const Cart = ({cart, setCart}) => {
                                 >+</button>
                             </div>
                             <div>
-                                <span> {cartItem.price * cartItem.quantity}$ </span>
-                                <button onClick={() => handleRemove(cartItem.id)} >Remove</button>
+                                <span className="cart-product-total-price"> {cartItem.price * cartItem.quantity}$ </span>
+                                <button className="remove-btn" onClick={() => handleRemove(cartItem.id)} >Remove</button>
                             </div>
                         </div>
                     )
                 })
             }
-            <div className="total">
-                <span> Total price of your cart</span>
-                <span>
-                    {
-                        CART.map(item => item.price * item.quantity).reduce((total, value) => total + value, 0)
-                    }
-                    $
-                </span>
-            </div>
-            <div className="lg:flex-1 cursor-pointer">
-                <button 
-                    className="flex items-center justify-center bg-black text-white py-2 px-4 font-bold rounded-lg shadow mt-5 lg:mt-0 hover:bg-slate-600 transition-all duration-200">
-                    Checkout
+            <div className="cart-summary">
+                <button className="remove-btn">
+                    Sign In
                 </button>
+                <div className="cart-checkout">
+                    <div className="subtotal">
+                        <span>Subtotal</span>
+                        <span>
+                            {
+                                CART.map(item => item.price * item.quantity).reduce((total, value) => total + value, 0)
+                            }
+                            $
+                        </span>
+                    </div>
+                    <p>Taxes and shipping calculated at checkout</p>
+                    <button>Check out</button>
+                    <div className="continue-shopping">
+                        <Link to="/store">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            fill="currentColor"
+                            className="bi bi-arrow-left"
+                            viewBox="0 0 16 16"
+                        >
+                            <path
+                            fillRule="evenodd"
+                            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+                            />
+                        </svg>
+                        <span>Continue Shopping</span>
+                        </Link>
+                    </div>
+                </div>
             </div>
         </article>
     )
