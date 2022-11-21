@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { BsFillCartPlusFill } from "react-icons/bs";
 import Axios from "axios";
 
-const SingleProduct = () => {
+const SingleProduct = ({ addToCart}) => {
     const [product, setProduct] = useState([])
     const {_id} = useParams()
 
@@ -42,8 +42,9 @@ const SingleProduct = () => {
                 <article className="px-8 pb-10">
                     <h2 className="bg-slate-100 py-1 px-2 text-black-400 uppercase tracking-wide text-sm font-bold inline-block rounded shadow mb-10">Buwj Habit</h2>
                     <h1 className="text-slate-900 mb-10 font-bold text-3xl lg:text-4xl">{product.title}</h1>
-                    <p className="text-slate-600 mb-10 leading-relaxed">{product.form}</p>
-                    <p className="text-slate-600 mb-10 leading-relaxed">{product.material}</p>
+                    <p className="text-slate-600 mb-10 leading-relaxed"><span className="font-bold">Form: </span>{product.form}</p>
+                    <p className="text-slate-600 mb-10 leading-relaxed"><span className="font-bold">Material: </span>{product.material}</p>
+                    <p className="text-slate-600 mb-10 leading-relaxed"><span className="font-bold">Size: </span>{product.size}</p>
 
                     <div className="flex flex-wrap items-center justify-between lg:flex-col lg:items-start lg:start-4">
                         <ul className="flex items-center gap-5">
@@ -57,7 +58,7 @@ const SingleProduct = () => {
                     </div>
 
                     <div className="mt-10 lg:flex items-center justify-between gap-2">
-                        <ul className="flex items-center justify-between bg-slate-100 py-2 px-4 rounded shadow lg:flex-1">
+                        {/* <ul className="flex items-center justify-between bg-slate-100 py-2 px-4 rounded shadow lg:flex-1">
                             <li onClick={handleMinus} className="cursor-pointer">
                                 <img className="w-5" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsfQp2cyWVsyFYLiJ4S6WqyqMvGj9eXdbnr9KbQg2E3w&s' alt="" />
                             </li>
@@ -65,16 +66,23 @@ const SingleProduct = () => {
                             <li onClick={() => setAmount(amount + 1)} className="cursor-pointer">
                                 <img className="w-5" src='https://media.istockphoto.com/vectors/black-plus-sign-positive-symbol-vector-id688550958?k=20&m=688550958&s=612x612&w=0&h=wvzUqT3u3feYygOXg3GB9pYBbqIsyu_xpvfTX-6HOd0=' alt="" />
                             </li>
-                        </ul>
+                        </ul> */}
                         
-                        <div className="lg:flex-1 cursor-pointer">
+                        <div className="lg:flex-1">
                             <button 
-                                //onClick={() => addToCart(productDetail)}
-                                className="flex items-center justify-center gap-4 bg-white py-2 px-4 font-bold rounded-lg shadow mt-5 w-full lg:mt-0 hover:bg-slate-600 transition-all duration-200">
+                                onClick={() => addToCart(product)}
+                                className="flex items-center justify-center gap-4 text-black py-2 px-4 text-white font-bold rounded-lg shadow mt-5 w-full lg:mt-0 hover:bg-orange-100 transition-all duration-200">
                                 <BsFillCartPlusFill /> Add to cart
                             </button>
                         </div>
                     </div>
+
+                    <Link
+                        to="/store"
+                        className='inline-block bg-slate-600 py-2 px-6 rounded mt-8 text-white hover:bg-slate-500 transition-all duration-200'
+                    >
+                        &larr; Back
+                    </Link>
                 </article>
             </section>
         </>
