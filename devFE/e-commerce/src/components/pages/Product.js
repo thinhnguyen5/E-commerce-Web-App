@@ -2,8 +2,11 @@ import {useState, useEffect} from "react";
 import { Link } from 'react-router-dom';
 import { BsFillCartPlusFill } from "react-icons/bs";
 import Axios from "axios";
+
 const Product = ({ addToCart }) => {
     const [products, setProducts] = useState([])
+    const [text, setText] = useState("")
+    
 
     useEffect(() => {
         const fetchProductData = async () => {
@@ -21,7 +24,6 @@ const Product = ({ addToCart }) => {
     
     const [value, setValue] = useState(0)
 
-    const [text, setText ] = useState("")
     
     return ( 
         <>
@@ -39,7 +41,7 @@ const Product = ({ addToCart }) => {
                                 <input type="text" name="search" placeholder="Search for a Tee" id="search" className=" py-2 px-4 rounded shadow 2-full"
                                     value={text}
                                     onChange={(e) => setText(e.target.value)} 
-                                    />
+                                />
                             </form>
                         </div>
 
@@ -59,7 +61,7 @@ const Product = ({ addToCart }) => {
                                                     <p>{product.price}$</p>
                                                 </article>
                                             </Link>
-
+                                            
                                             <button 
                                                 onClick={() => addToCart(product)}
                                                 className="mt-10 lg:flex-1 cursor-pointer flex items-center justify-center gap-4 bg-white py-2 px-4 font-bold rounded-lg shadow mt-5 w-full hover:bg-slate-600 transition-all duration-200">
