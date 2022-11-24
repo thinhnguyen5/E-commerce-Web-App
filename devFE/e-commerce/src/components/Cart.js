@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import data from "../components/pages/ProductData"
+import { Link, useParams } from 'react-router-dom'; 
 import { AiOutlineShopping } from "react-icons/ai";
 import './Cart.css'
+import { useNavigate } from 'react-router';
 
 const Cart = ({cart, setCart}) => {
     
@@ -58,9 +58,11 @@ const Cart = ({cart, setCart}) => {
                 })
             }
             <div className="cart-summary">
-                <button className="remove-btn">
-                    Sign In
-                </button>
+                <Link to ='/sign-in'>
+                    <button className="remove-btn">
+                        Sign In
+                    </button>
+                </Link>
                 <div className="cart-checkout">
                     <div className="subtotal">
                         <span>Subtotal</span>

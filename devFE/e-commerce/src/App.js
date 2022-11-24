@@ -4,9 +4,12 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Home from './components/pages/Home';
-import Product from './components/pages/Product'
-import SingleProduct from './components/pages/SingleProduct'
-import Cart from './components/Cart'
+import Product from './components/pages/Product';
+import SingleProduct from './components/pages/SingleProduct';
+import Cart from './components/Cart';
+import SignIn from './components/pages/SignIn';
+import SignUp from './components/pages/SignUp';
+import { AuthProvider } from './context/AuthProvider';
 
 
 const App = () => {
@@ -37,6 +40,8 @@ const App = () => {
         <Route path='/store' element={<Product addToCart={ addToCart } />}/>
         <Route path='/:_id' element={<SingleProduct addToCart={ addToCart } />}/>
         <Route path='/cart' element={<Cart cart={ cart } setCart={ setCart } />} />
+        <Route path='/sign-in' element={<SignIn />} />
+        <Route path='/sign-up' element={<SignUp />} />
       </Routes>
       { 
           warning && <div className="warning">Item is already added to cart</div>

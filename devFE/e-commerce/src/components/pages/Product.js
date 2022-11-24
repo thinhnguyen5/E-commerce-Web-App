@@ -1,11 +1,13 @@
 import {useState, useEffect} from "react";
 import { Link } from 'react-router-dom';
 import { BsFillCartPlusFill } from "react-icons/bs";
-import Axios from "axios";
+import { useNavigate } from 'react-router';
 
 const Product = ({ addToCart }) => {
     const [products, setProducts] = useState([])
     const [text, setText] = useState("")
+    // const navigate = useNavigate();
+    // navigate("/cart");
     
 
     useEffect(() => {
