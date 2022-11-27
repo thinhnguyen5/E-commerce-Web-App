@@ -14,7 +14,6 @@ export default class SignIn extends Component  {
       handleSubmit(e) {
         e.preventDefault();
         const { username, passwordHash } = this.state;
-        console.log(username, passwordHash);
         fetch("https://e-commerce-web-app-be.herokuapp.com/auth/login", {
           method: "POST",
           crossDomain: true,
@@ -30,11 +29,11 @@ export default class SignIn extends Component  {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data, "userRegister");
+            console.log(data, "userLogin");
             if (data.status == "ok") {
               alert("login successful");
-            //   window.localStorage.setItem("token", data.data);
-            //   window.location.href = "./userDetails";
+              window.localStorage.setItem("accessToken", data.data);
+              window.location.href = "./userDetail";
             }
           });
         }

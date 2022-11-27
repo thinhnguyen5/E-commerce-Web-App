@@ -9,7 +9,7 @@ import SingleProduct from './components/pages/SingleProduct';
 import Cart from './components/Cart';
 import SignIn from './components/pages/SignIn';
 import SignUp from './components/pages/SignUp';
-import { AuthProvider } from './context/AuthProvider';
+import UserDetail from './components/pages/userDetail';
 
 
 const App = () => {
@@ -42,6 +42,7 @@ const App = () => {
         <Route path='/cart' element={<Cart cart={ cart } setCart={ setCart } />} />
         <Route path='/sign-in' element={<SignIn />} />
         <Route path='/sign-up' element={<SignUp />} />
+        <Route path='/userDetail' element={<UserDetail />} />
       </Routes>
       { 
           warning && <div className="warning">Item is already added to cart</div>

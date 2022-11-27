@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import Axios from 'axios';
 import '../Form.css';
-import constants from "../../constants.json";
 
 export default class SignUp extends Component {
     constructor(props) {
@@ -17,7 +15,6 @@ export default class SignUp extends Component {
     handleSubmit(e) {
         e.preventDefault();
         const { username, name, passwordHash } = this.state;
-        console.log(username, name, passwordHash);
         fetch("https://e-commerce-web-app-be.herokuapp.com/auth/register", {
           method: "POST",
           crossDomain: true,
@@ -32,10 +29,22 @@ export default class SignUp extends Component {
             passwordHash,
           }),
         })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data, "userRegister");
-          });
+        //   .then((res) => res.json())
+        //   .then((data) => {
+        //     console.log(data, "userRegister");
+        //     if (data.status == "ok") {
+        //         alert("login successful");
+        //         window.localStorage.setItem("accessToken", data.data);
+        //         window.location.href = "./sign-in";
+        //       }
+        //   });
+        .then((response) => {
+            console.log(response);
+            if (response) {
+                alert("Create successful")
+                window.location.href = "./sign-in";
+            }
+        })
       }
 
     render() {
