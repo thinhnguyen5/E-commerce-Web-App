@@ -22,8 +22,8 @@
   .form-content-left {
     background: linear-gradient(
       90deg,
-      rgb(255,222,173) 0%,
-      rgb(245,222,179) 100%
+      #fff 0%,
+      #fff 100%
     );
     border-radius: 10px 0 0 10px;
     position: relative;
@@ -57,7 +57,7 @@
   .form-content-right {
     border-radius: 0 10px 10px 0;
     position: relative;
-    background: linear-gradient(90deg,rgb(160,82,45)0%, rgb(205,133,63) 100%);
+    background: linear-gradient(90deg,rgb(87, 101, 116)0%, rgb(87, 101, 116) 100%);
   }
   
   .form {
@@ -121,8 +121,8 @@
     border-radius: 2px;
     background: linear-gradient(
       90deg,
-      rgb(255,218,185) 0%,
-      rgb(255,228,181) 100%
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.2) 100%
     );
     outline: none;
     border: none;
@@ -134,9 +134,10 @@
     cursor: pointer;
     background: linear-gradient(
       90deg,
-      rgb(255,255,204) 0%,
-      rgb(255,255,153) 100%
+      #595959 0%,
+      #595959 100%
     );
+    color: #fff;
     transition: all 0.4s ease-out;
   }
   
@@ -150,7 +151,7 @@
   
   .form-input-login a {
     text-decoration: none;
-    color:wheat;
+    color: #fff;
     font-weight: 600;
   }
   
@@ -164,7 +165,7 @@
   
   .form-input-register a {
     text-decoration: none;
-    color:wheat;
+    color: #fff;
     font-weight: 600;
   }
   
