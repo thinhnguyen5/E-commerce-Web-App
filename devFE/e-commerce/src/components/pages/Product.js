@@ -1,14 +1,10 @@
 import {useState, useEffect} from "react";
 import { Link } from 'react-router-dom';
 import { BiDetail} from "react-icons/bi";
-import { useNavigate } from 'react-router';
 
-const Product = ({ addToCart }) => {
+const Product = () => {
     const [products, setProducts] = useState([])
     const [text, setText] = useState("")
-    // const navigate = useNavigate();
-    // navigate("/cart");
-    
 
     useEffect(() => {
         const fetchProductData = async () => {
@@ -23,8 +19,6 @@ const Product = ({ addToCart }) => {
         }
         fetchProductData()
     }, [])
-    
-    const [value, setValue] = useState(0)
 
     
     return ( 
@@ -42,7 +36,6 @@ const Product = ({ addToCart }) => {
                             <form className="mt-10 max-w-xl mx-auto" autoComplete="off"> 
                                 <input type="text" name="search" placeholder="Search for a Tee" id="search" className=" py-2 px-4 rounded shadow 2-full"
                                     value={text}
-                                    onChange={(e) => setText(e.target.value)} 
                                 />
                             </form>
                         </div>
@@ -78,8 +71,6 @@ const Product = ({ addToCart }) => {
                     </section>
                 </>
             )}
-
-
         </>
     );
 }

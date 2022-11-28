@@ -1,16 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import { BsFillCartPlusFill } from "react-icons/bs";
 import './Navbar.css';
 
 const Navbar = ({size}) => {
-    const [click, setClick] = useState(false);
 
     const [isOpen, setIsOpen] = useState(false);
-
-    const handleClick = () => setClick(!click);
-
-    const closeMobileMenu = () => setClick(false)
 
     return (
         <>

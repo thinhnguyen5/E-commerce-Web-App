@@ -18,14 +18,6 @@ const SingleProduct = ({ addToCart}) => {
         .catch(err => {console.log(err)});
     }, [_id])
 
-    const [amount, setAmount] = useState(0);
-    //const [cart, setCart] = useState([]);
-
-    const handleMinus = () => {
-        setAmount(amount - 1)
-        if (amount < 0) setAmount(0)
-    };
-
     return (
         <>
             <section className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:py-20 lg:place-items-center">
@@ -58,16 +50,6 @@ const SingleProduct = ({ addToCart}) => {
                     </div>
 
                     <div className="mt-10 lg:flex items-center justify-between gap-2">
-                        {/* <ul className="flex items-center justify-between bg-slate-100 py-2 px-4 rounded shadow lg:flex-1">
-                            <li onClick={handleMinus} className="cursor-pointer">
-                                <img className="w-5" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsfQp2cyWVsyFYLiJ4S6WqyqMvGj9eXdbnr9KbQg2E3w&s' alt="" />
-                            </li>
-                            <li>{amount}</li>
-                            <li onClick={() => setAmount(amount + 1)} className="cursor-pointer">
-                                <img className="w-5" src='https://media.istockphoto.com/vectors/black-plus-sign-positive-symbol-vector-id688550958?k=20&m=688550958&s=612x612&w=0&h=wvzUqT3u3feYygOXg3GB9pYBbqIsyu_xpvfTX-6HOd0=' alt="" />
-                            </li>
-                        </ul> */}
-                        
                         <div className="lg:flex-1">
                             <button 
                                 onClick={() => addToCart(product)}

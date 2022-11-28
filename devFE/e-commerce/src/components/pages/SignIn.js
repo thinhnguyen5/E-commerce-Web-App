@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../Form.css';
-
 export default class SignIn extends Component  {
     constructor(props) {
         super(props);

@@ -29,15 +29,6 @@ export default class SignUp extends Component {
             passwordHash,
           }),
         })
-        //   .then((res) => res.json())
-        //   .then((data) => {
-        //     console.log(data, "userRegister");
-        //     if (data.status == "ok") {
-        //         alert("login successful");
-        //         window.localStorage.setItem("accessToken", data.data);
-        //         window.location.href = "./sign-in";
-        //       }
-        //   });
         .then((response) => {
             console.log(response);
             if (response) {

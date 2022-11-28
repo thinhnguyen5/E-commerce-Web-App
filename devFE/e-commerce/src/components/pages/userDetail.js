@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import {useNavigate} from "react-router-dom";
 import '../userData.css'
-
 export default class UserDetail extends Component {
     constructor(props) {
       super(props);
@@ -33,9 +31,6 @@ export default class UserDetail extends Component {
     handleClick = () => {
         localStorage.clear();
         window.location.href = "./sign-in";
-        // if(!localStorage.getItem('accessToken')) {
-        //     navigate('/sign-in')
-        // }
     }
 
     render() {
