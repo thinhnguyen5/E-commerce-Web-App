@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom'; 
+import { BiArrowBack } from "react-icons/bi";
 import { AiOutlineShopping } from "react-icons/ai";
 import './Cart.css'
 import { useNavigate } from 'react-router';
@@ -9,6 +10,7 @@ const Cart = ({cart, setCart}) => {
     const [CART, setCART] = useState([])
     const [showCart, setShowCart] = useState(false);
     const cartRef = useRef();
+    const navigate = useNavigate();
 
      useEffect(() => {
         setCART(cart)
@@ -20,8 +22,24 @@ const Cart = ({cart, setCart}) => {
     }
 
     return (
-        <article className= "cart_article">
+        <div className="cart-container">
+            <h2>Shopping Cart</h2>
             {
+                cart.length === 0 ? (
+                    <div className="cart-empty">
+                        <AiOutlineShopping size={150}/>
+                        <p>Your shopping bag is empty</p>
+                        <div className="start-shopping">
+                            <Link to="/">
+                                <BiArrowBack/>
+                                Start Shopping
+                            </Link>
+                        </div>
+                    </div>
+
+                ) : (
+                    <article className= "cart_article">
+             {
                 CART?.map((cartItem, cartIndex) => {
                     return (
                         <div className="cart_box">
@@ -74,7 +92,12 @@ const Cart = ({cart, setCart}) => {
                         </span>
                     </div>
                     <p>Taxes and shipping calculated at checkout</p>
-                    <button>Check out</button>
+                    <button
+                        className="cart-login"
+                        onClick={() => navigate("/sign-in")}
+                        >
+                        Login to Check out
+                    </button>
                     <div className="continue-shopping">
                         <Link to="/store">
                         <svg
@@ -96,6 +119,10 @@ const Cart = ({cart, setCart}) => {
                 </div>
             </div>
         </article>
+                )
+            }
+
+        </div>
     )
 }
 

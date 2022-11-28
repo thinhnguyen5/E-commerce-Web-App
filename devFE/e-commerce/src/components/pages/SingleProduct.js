@@ -30,7 +30,7 @@ const SingleProduct = ({ addToCart}) => {
         <>
             <section className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:py-20 lg:place-items-center">
                 <article>
-                    <img src={product.image} alt={product.title} className="w-full lg:rounded-2xl" />
+                    <img src={product.image} alt={product.title} className="w-full lg:rounded-2xl hover:scale-125 ease-in duration-500" />
 
                     <ul className="flex items-center justify-start gap-5 flex-wrap mt-5">
                         <li className="border-2 border-black-400 opacity-80 border-2 rounded-2xl overflow-hidden cursor-pointer">
@@ -71,7 +71,7 @@ const SingleProduct = ({ addToCart}) => {
                         <div className="lg:flex-1">
                             <button 
                                 onClick={() => addToCart(product)}
-                                className="flex items-center justify-center gap-4 text-black py-2 px-4 text-white font-bold rounded-lg shadow mt-5 w-full lg:mt-0 hover:bg-orange-100 transition-all duration-200">
+                                className="flex items-center justify-center gap-4 text-black py-2 px-4 font-bold rounded-lg shadow mt-5 w-full lg:mt-0 hover:scale-125 ease-in duration-500">
                                 <BsFillCartPlusFill /> Add to cart
                             </button>
                         </div>

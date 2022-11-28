@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
 import { Link } from 'react-router-dom';
-import { BsFillCartPlusFill } from "react-icons/bs";
+import { BiDetail} from "react-icons/bi";
 import { useNavigate } from 'react-router';
 
 const Product = ({ addToCart }) => {
@@ -64,11 +64,12 @@ const Product = ({ addToCart }) => {
                                                 </article>
                                             </Link>
                                             
-                                            <button 
-                                                onClick={() => addToCart(product)}
-                                                className="mt-10 lg:flex-1 cursor-pointer flex items-center justify-center gap-4 bg-white py-2 px-4 font-bold rounded-lg shadow mt-5 w-full hover:bg-slate-600 transition-all duration-200">
-                                                <BsFillCartPlusFill /> Add to cart
-                                            </button>
+                                            <Link to={`/${product._id}`} key={product._id}>
+                                                <button 
+                                                    className="mt-10 lg:flex-1 cursor-pointer flex items-center justify-center gap-4 bg-white py-2 px-4 font-bold rounded-lg shadow mt-5 w-full hover:bg-slate-600 transition-all duration-200">
+                                                    <BiDetail /> See More Detail
+                                                </button>
+                                            </Link>
                                         </div>
                                     )   
                                 })
