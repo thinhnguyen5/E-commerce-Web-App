@@ -1,3 +1,5 @@
+CI: [![Netlify Status](https://api.netlify.com/api/v1/badges/61805964-92df-4f71-9419-c55ebbd8a2eb/deploy-status)](https://app.netlify.com/sites/e-commerce-t-shirt-website/deploys)
+
 # E-COMMERCE-APP
 TECHNICAL PROJECT PLAN: https://docs.google.com/document/d/1N2socEFj5wMjPRb4qsByFPAL5uR-eAr7EgdxWpfO-5Q/edit
 
