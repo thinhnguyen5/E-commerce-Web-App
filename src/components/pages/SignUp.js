@@ -29,21 +29,25 @@ export default class SignUp extends Component {
             passwordHash,
           }),
         })
-        .then((response) => {
-            console.log(response);
-            if (response) {
+        .then((res) => res.json())
+        .then((data) => {
+                console.log(data, "userRegister");
                 alert("Create successful")
                 window.location.href = "./sign-in";
-            }
         })
-      }
+        .catch((error) => {
+            console.log(error);
+            alert("Created fail, please try again", error.message)
+        })
+        
+    }
 
     render() {
         return (
             <div className='form-container'>
                 <span className='close-btn'></span>
                 <div className='form-content-left'>
-                    <img src='images/img13.jpg' alt='spacecoffee'
+                    <img src='images/img13.jpg' alt=''
                     className='form-img'/>
                 </div>
                 <div className="form-content-right">
@@ -64,7 +68,7 @@ export default class SignUp extends Component {
                                 required='username require'
                                 className='form-input'
                                 placeholder='Enter your username'
-                                onChange={e => this.setState({username: e.target.value})}
+                                onChange={(e) => this.setState({username: e.target.value})}
                             />
                         </div>
                         <div className='form-inputs'>
@@ -79,7 +83,7 @@ export default class SignUp extends Component {
                                 required='name require'
                                 className='form-input'
                                 placeholder='Enter your name'
-                                onChange={e => this.setState({name: e.target.value})}
+                                onChange={(e) => this.setState({name: e.target.value})}
                             />
                         </div>
                         <div className='form-inputs'>
@@ -94,7 +98,7 @@ export default class SignUp extends Component {
                                 required='password require'
                                 className='form-input'
                                 placeholder='Enter your password'
-                                onChange={e => this.setState({passwordHash: e.target.value})}
+                                onChange={(e) => this.setState({passwordHash: e.target.value})}
                             />
                         </div>
                         <button className='form-input-btn'
