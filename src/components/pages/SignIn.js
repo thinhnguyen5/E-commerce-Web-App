@@ -30,7 +30,7 @@ export default class SignIn extends Component  {
           .then((data) => {
             console.log(data, "userLogin");
             if (data.status == "ok") {
-              alert("login successful");
+              alert("Login Successful");
               window.localStorage.setItem("accessToken", data.data);
               window.location.href = "./userDetail";
             }

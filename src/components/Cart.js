@@ -3,14 +3,10 @@ import { Link, useParams } from 'react-router-dom';
 import { BiArrowBack } from "react-icons/bi";
 import { AiOutlineShopping } from "react-icons/ai";
 import './Cart.css'
-import { useNavigate } from 'react-router';
 
 const Cart = ({cart, setCart}) => {
     
-    const [CART, setCART] = useState([])
-    const [showCart, setShowCart] = useState(false);
-    const cartRef = useRef();
-    const navigate = useNavigate();
+    const [CART, setCART] = useState([]);
 
      useEffect(() => {
         setCART(cart)
@@ -94,9 +90,8 @@ const Cart = ({cart, setCart}) => {
                     <p>Taxes and shipping calculated at checkout</p>
                     <button
                         className="cart-login"
-                        onClick={() => navigate("/sign-in")}
                         >
-                        Login to Check out
+                        Process to checkout
                     </button>
                     <div className="continue-shopping">
                         <Link to="/store">
