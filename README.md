@@ -1,3 +1,9 @@
+TECHNICAL PROJECT PLAN: https://docs.google.com/document/d/1N2socEFj5wMjPRb4qsByFPAL5uR-eAr7EgdxWpfO-5Q/edit
+
+DEPLOYMENT: https://e-commerce-t-shirt-website.netlify.app/
+
+BACK_END REPOSITORY: https://github.com/thinhnguyen5/E-Commerce-Web-App-Api.git
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
