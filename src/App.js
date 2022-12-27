@@ -29,7 +29,7 @@ const App = () => {
           }, 2000);
           return ;
       }
-      setCart([...cart, { ...data, quantity: 1 }]);
+      setCart([...cart, data]);
     }
 
   return (
