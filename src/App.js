@@ -19,7 +19,7 @@ const App = () => {
     const addToCart = (data) => {
       let isPresent = false;
       cart.forEach((product) => {
-        if (data.id === product.id)
+        if (data._id === product._id)
         isPresent = true
       })
       if (isPresent){
@@ -29,7 +29,7 @@ const App = () => {
           }, 2000);
           return ;
       }
-      setCart([...cart, data]);
+      setCart([...cart, { ...data, quantity: 1 }]);
     }
 
   return (
