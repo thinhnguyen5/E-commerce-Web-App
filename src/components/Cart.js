@@ -12,8 +12,8 @@ const Cart = ({cart, setCart}) => {
         setCART(cart)
      }, [cart])
 
-     const handleRemove = (id) =>{
-        const arr = cart.filter((item)=>item.id !== id);
+     const handleRemove = (_id) =>{
+        const arr = cart.filter((item)=>item._id !== _id);
         setCart(arr);
     }
 
