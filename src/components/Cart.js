@@ -65,7 +65,7 @@ const Cart = ({cart, setCart}) => {
                             </div>
                             <div>
                                 <span className="cart-product-total-price"> {cartItem.price * cartItem.quantity}$ </span>
-                                <button className="remove-btn" onClick={() => handleRemove(cartItem.id)} >Remove</button>
+                                <button className="remove-btn" onClick={() => handleRemove(cartItem._id)} >Remove</button>
                             </div>
                         </div>
                     )
