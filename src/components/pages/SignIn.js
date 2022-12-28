@@ -34,7 +34,11 @@ export default class SignIn extends Component  {
               window.localStorage.setItem("accessToken", data.data);
               window.location.href = "./userDetail";
             }
-          });
+          })
+          .catch((error) => {
+            console.log(error);
+            alert("Invalid Username or Password, please try again", error.message)
+        })
         }
 
       render() 
