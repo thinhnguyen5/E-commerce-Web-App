@@ -6,11 +6,14 @@ import './Cart.css'
 
 const Cart = ({cart, setCart}) => {
     
+
     const [CART, setCART] = useState([]);
 
      useEffect(() => {
         setCART(cart)
      }, [cart])
+     
+
 
      const handleRemove = (_id) =>{
         const arr = cart.filter((item)=>item._id !== _id);

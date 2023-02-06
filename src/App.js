@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
@@ -11,10 +11,16 @@ import SignIn from './components/pages/SignIn';
 import SignUp from './components/pages/SignUp';
 import UserDetail from './components/pages/userDetail';
 
+const cartFromLocalStorage = JSON.parse(window.localStorage.getItem('Cart') || "[]")
 
 const App = () => {
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState(cartFromLocalStorage);
     const [warning, setWarning] = useState(false);
+
+    useEffect(() => {
+      window.localStorage.setItem("Cart", JSON.stringify(cart))
+   }, [cart]);
+
 
     const addToCart = (data) => {
       let isPresent = false;

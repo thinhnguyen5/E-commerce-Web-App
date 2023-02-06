@@ -53,8 +53,11 @@ export default class SignIn extends Component  {
             <div className="form-content-right">
               <form className="form" onSubmit={this.handleSubmit}>
                 <h1>
-                  If you have an account already, sign in here !
+                  You have to sign in before checkout
                 </h1>
+                <h3>
+                  If you have an account already, sign in here !
+                </h3>
                 <div className='form-inputs'>
                     <label  htmlFor='username'
                             className='form-label'>
