@@ -56,7 +56,7 @@ const Navbar = ({size}) => {
                                 </Link>
                             </li>
                             <li>
-                            <Link to='/sign-in'>
+                            <Link to='/userDetail'>
                                 < CgProfile className="text-2xl text-slate-600" />
                             </Link>
                         </li>
